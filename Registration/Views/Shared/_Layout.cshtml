@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+            
+
+            
+
+                @if (Session["UserId"] != null)
+                {
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">Welcome : @Session["UserName"]</a></li>
+                        <li><a href="/Test/Logout">Logout</a></li>
+
+                    </ul>
+                }
+                else
+                {
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/Test/Login">Login</a></li>
+                        @*<li><a href="/Test/Registration">Register</a></li>*@
+
+                    </ul>
+                }
+
+
+            </div>
+
+    </nav>
+
+    <div class="panel-body">
+
+        @RenderBody()
+
+
+    </div>
+
+   
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+    @RenderSection("scripts", required: false)
+
+
+</body>
+</html>
